@@ -1,0 +1,81 @@
+  
+    <!-- 
+    http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js
+     -->
+     <!-- 
+     第一种方式: 创建DOM节点,设置标签为块级标签.
+     适用范围: 基本上除了IE,其他浏览器都支持
+      
+    <script type="text/javascript">
+    document.createElement("header");
+    document.createElement("aside");
+    document.createElement("article");
+    document.createElement("footer");
+    document.createElement("figure");
+    document.createElement("figcaption");
+    </script>
+
+
+    <style type="text/css">
+    aside,article,header,footer,figure,section,nav,dialog{display: block;}
+    </style> 
+   -->
+
+
+
+     <!-- 
+     第二种方式: 使用百度资源库或谷歌资源库,实现IE6-8版本的样式支持
+      -->
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+
+
+    <style type="text/css">
+    article,aside,dialog,footer,header,section,nav,figure{display:block;}
+    
+    </style> 
+    
+    
+    <style type="text/css">
+    *{padding: 0px;margin: 0px;border: 0px}
+    #content{width: 712px;}
+    header,aside,article,footer{border: 1px #ccc solid;padding: 5px;}
+    header{width: 700px;}
+    aside{width: 188px;height: 300px;float: left;}
+    article{width: 500px;height: 300px;float: left;}
+    footer{clear: both;}
+    figure{float: left;margin: 30px 10px;}
+    </style>
+
+  
+
+    HTML5兼容测试. <br>
+    <div align="center">
+	    <div id="content">
+	    <header>
+	    	<h1>XX商品公司</h1>
+	    </header>
+	    <aside>
+	    公告<br>
+	    今日起,所有商品1折起...
+	    </aside>
+	    <article>
+		    <figure>
+			    <img src="img/oppo R11.jpg" width="110">
+			    <figcaption>上市时间:<time>2017.2.1</time></figcaption>
+		    </figure>
+		    <figure>
+			     <img src="img/vivo x9s.jpg"  width="110">
+			     <figcaption>上市时间:<time>2017.6.30</time></figcaption>
+		    </figure>
+		    <figure>
+			    <img src="img/xiaomi5X.jpg"  width="110">
+			    <figcaption>上市时间:<time>2017.8.20</time></figcaption>
+		    </figure>
+	    </article>
+	    <footer>
+	    <address>公司地址: 大同市南郊区太和路与兴云街交叉口</address>
+	    </footer>
+	    </div>
+    </div>
+
+

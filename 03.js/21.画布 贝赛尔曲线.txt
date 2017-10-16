@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    function test(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	//绘制贝赛尔曲线路径
+    	ctx.beginPath();
+    	ctx.moveTo(200,50);
+    	ctx.quadraticCurveTo(0,100,200,300);
+    	ctx.stroke();
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(200,50);
+    	ctx.quadraticCurveTo(400,100,200,300);
+    	ctx.stroke();
+    	//绘制椭圆:400*150
+    	/* ctx.beginPath();
+    	ctx.moveTo(500,300);
+    	ctx.quadraticCurveTo(500,200,650,200);
+    	ctx.quadraticCurveTo(800,200,800,300);
+    	ctx.quadraticCurveTo(800,400,650,400);
+    	ctx.quadraticCurveTo(500,400,500,300);
+    	ctx.stroke(); */
+    	
+    	/* ctx.beginPath();
+    	ctx.moveTo(500,300);
+    	ctx.bezierCurveTo(500,200,800,200,800,300);
+    	ctx.bezierCurveTo(800,400,500,400,500,300);
+    	ctx.stroke(); */
+    	
+    	
+    	/* ctx.beginPath();
+    	ctx.moveTo(20,390);
+    	ctx.quadraticCurveTo(20,315,220,315);
+    	ctx.quadraticCurveTo(420,315,420,390);
+    	ctx.quadraticCurveTo(420,465,220,465);
+    	ctx.quadraticCurveTo(20,465,20,390);
+    	ctx.stroke(); */
+    	/* ctx.beginPath();
+    	ctx.moveTo(20,390);
+    	ctx.bezierCurveTo(20,315,420,315,420,390);
+    	ctx.bezierCurveTo(420,465,20,465,20,390);
+    	ctx.stroke(); */
+    	
+    	//绘制爱心
+    	ctx.beginPath();
+    	ctx.moveTo(600,200);
+    	ctx.quadraticCurveTo(525,100,450,200);
+    	ctx.quadraticCurveTo(375,350,600,450);
+    	ctx.moveTo(600,200);
+    	ctx.quadraticCurveTo(675,100,750,200);
+    	ctx.quadraticCurveTo(825,350,600,450);
+    	ctx.fillStyle="red";
+    	ctx.fill();
+    	ctx.stroke();
+    }
+    </script>
+
+
+
+<div style="width: 200px;margin: 10px auto;">
+ 	<h1>绘制椭圆测试</h1>
+  	<input type="button" value="绘制" onclick="test()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>

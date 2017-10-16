@@ -1,0 +1,77 @@
+<script type="text/javascript">
+    $(function(){
+    	if(!window.localStorage){
+    		alert("您的浏览器不支持!");
+    		return false;
+    	}
+    	
+    	var allSize=localStorage.length;
+    	if(allSize>0){//至少含有1条记录
+    		for(var i=allSize;i>0;i--){
+    			var keyName=localStorage.key(i-1)
+    			$("#bodyDiv ul").append("<li><span>"+localStorage.getItem(keyName)+"</span><span class='delItem'>删除</span>"+"</li>");
+        	}
+    	}
+    	//点击记录,信息填入搜索框
+    	$("#bodyDiv li").click(function(){
+    		$("#wd").val($(this).children(":eq(0)").text());
+    	});
+    	//追加记录
+    	$("#bt").click(function(){
+    		if(!(localStorage.length<5)){
+    			return;
+    		}
+    		var nowVal=$("#wd").val();
+    		if(nowVal.length>0){
+    			localStorage.setItem(new Date().toLocaleString(), nowVal);
+    		}
+    	});
+    	//删除记录
+    	$(".delItem").click(function(){
+    		var keyval=localStorage.key(localStorage.length-$(this).parent().index()-1);
+    		localStorage.removeItem(keyval);
+    		$(this).parent().remove();
+    	});
+
+    	$("#wd").focus(function(){
+    		$("#bodyDiv ul").show();
+    	});
+    	$("#wd,#bodyDiv ul,li,span").click(function(){
+    		event.stopPropagation();
+    	});
+    	$(":not(#wd,#bodyDiv ul,li,span)").click(function(){
+    		
+    		event.stopPropagation();
+$("#bodyDiv ul").hide();
+    	});
+    	
+    	
+    	
+    })
+    </script>
+
+
+
+<!-- 左上角 -->
+  	<div id="topDiv">
+  		<img src="images/top.png" id="top">
+  	</div>
+  	<!-- logo -->
+  	<div id="logoDiv">
+  	<img src="images/logo.gif">
+  	</div>
+  	<!-- 主体 -->
+    <div id="bodyDiv">
+    <form action="http://www.baidu.com/s">
+    <input type="text" id="wd" name="wd">
+    <input type="image" id="bt" src="images/bt.png">
+    </form>
+    <ul>
+    <!-- 
+    <li><span>明天你好</span><span>删除</span></li>
+    <li><span>HTML5</span><span>删除</span></li>
+    <li><span>CSS3</span><span>删除</span></li>
+    -->
+    </ul>
+    <img src="images/body.png">
+    </div>

@@ -1,0 +1,128 @@
+1.背景图片一般写在body中,但如果想让背景随着窗口缩小有滚动条出现,就要写在div标签中.因为body指的是窗口的大小.
+2.文本框中文本缩进用text-indent.
+3.要在所有的程序外面套两个div.宽高100%,居中显示.
+4.向一个方法传递数据.可以用参数传递或者全局变量.
+5.密码框要显示默认文字用placeholder.不用value.
+6.function  info(name){
+	var moren=document.getElementsByName(name)[0];
+	if("user"==name){
+	
+		if(moren.value==""){
+			moren.value="支持QQ号/邮箱/手机号登录";
+		}else if(moren.value=="支持QQ号/邮箱/手机号登录"){
+			moren.value="";
+		}else{
+			checkInfo(name);      //判断账号是否正确
+		}
+	
+	}else if("pass"==name){
+			if(moren.value==""){
+			moren.value="密码";
+		}else if(moren.value=="密码"){
+			moren.value=""
+		}else{
+			checkInfo(name);     //判断密码是否正确
+		}
+	}
+	
+}<input value="支持QQ号/邮箱/手机号登录" name="user" class="info" onfocus="info(name)"  onblur="info(name)"><br>
+<input value="密码" class="info" name="pass" onfocus="info(name)" onblur="info(name)"><br>
+7.onblur    失去焦点     onfocus     得到焦点
+8.如果背景图片过大可以用   background-size: contain;
+9.把背景图片放到div中,如果用margin移动里面的图片背景会跟着下移.因为背景是div内容的背景,内容下移背景也会跟着下移.
+10.一个div可以有多个背景.可以用background-position把他们的位置公开.
+11.字符拼接用双引号和加号
+例:newTr.insertCell(5).innerHTML="<input type='button' value='确定' onclick='saveInfo("+newRowIndex+")'><input type='button' value='取消' onclick='delInfo("+(newRowIndex)+")'>";
+12.自杀式删除
+var delTr=document.getElementById("tr"+rowId);
+delTr.parentNode.removeChild(delTr);
+13.判断几个div需要隐藏不是显示可以用循环.也可以用onmouseout加onmouseover配合if语句.鼠标悬浮在上面显示移出隐藏.
+14.想要设置行内元素的宽高,可以用  display:line-block;
+15.块级元素一行显示用   float:left;   不过要记得他的下一个标签要记得清除影响用 clear:both;
+16.轮播图的定时器
+ window.onload=function(){
+    	window.setInterval("backNextImg(1)",5000);
+    }//backNextImg(1)是左右切换的方法.1的位置是传入的参数.在这里用1
+17.跟着鼠标的移动,图片位置随之移动
+function test(actionType){      /* 主图片切换  */
+	bigId=actionType;
+	document.getElementById("a").src="imges/c"+actionType+".jpg";
+	tet(actionType);
+}
+ var bigId=1;
+function hoverImg(eventObj){     /* 图片悬浮 */
+    var mousehover1=document.getElementById("mousehover1");
+    mousehover1.src="imges/c"+bigId+".jpg";
+    mousehover1.style.display="block";
+    mousehover1.style.top=(eventObj.clientY+25)+"px";
+    mousehover1.style.left=(eventObj.clientX+25)+"px";
+    
+}//bigId是全局变量,用来同步更换图片
+18.清除下拉框中的其他文字
+var ad2=document.getElementById("se2");
+ad2.length=0;19.要设置a标签样式和当悬浮时改变a标签样式要用一样id或class设置.
+20.防止表单或者a标签提交
+return false;
+<a href="javascript:void(0)"></a>
+21.要写注释.
+22.移动位置时一般用绝对.但是绝对会和其他标签相互忽略无法撑大内容.
+23.重置按钮
+function fff(){
+		location.reload();
+		
+	}24.按键盘enter键提交数据
+function keycheck(){
+		var key=event.keyCode;
+		if(key==13){
+			test3();
+		}
+	}<input type="password" id="info2" onblur="test2()" onkeydown="keycheck()"><br>25.打开新的页面
+function aa(){
+		location.assign("register.html");
+	}<input type="button" value="注册" class="push" id="register" onclick="aa()">26.点击注册按钮提交的是form中的路径,否则表单中填写的内容都会消失
+例:
+function test1(){
+	hobbyCheck();
+	addressCheck();
+	
+	if(userCheckRS&&passCheckRS&&ageCheckRS&&hobbyCheckRS&&adressCheckRS){
+		window.open("success.html","succ","width:300px,height:300px,top:200px,resizable=0");
+		return true;
+	}else{
+		alert("信息有误请检查!")
+		return false;
+	}
+	}<form action="success.html" target="succ"><input type="submit" value="注册" id="reg" onclick="return test1()">27.关闭此窗口并实现父窗口跳转
+function test(){
+	window.opener.location.assign("land.html");
+	window.close();
+	
+}
+28.去掉<ul></ul>标签前面的点
+   list-style-type: none;
+29.把<ul></ul>标签前面的点包括进去
+    list-style-position: inside;30.
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="www.w3.org/1999/xhtml">
+代码正确,但有错位时可以用.让显示的更加准确
+31.有时候位置移动的不准确,需要写
+position:absolut;
+left:0px;
+top:0px;
+32.图片精灵先是左右后是上下
+33.局部变量: 调用对象
+ 内嵌的函数、函数的参数和局部变量是调用对象的属性。调用对象是在函数运行时创建的！一般用完就释放，除非产生了闭包！
+34.两个元素之间的边距用padding
+35.overflow:hidden;溢出隐藏
+36.背景透明
+backgroung-color:rgba(,,,);
+标签透明
+opacity:0.6;
+37.if的括号里一般用==
+38.多维数组
+ var allStudy=new Array();
+    //数组名[索引/元素名]
+    allStudy["web"]= ["HTML","CSS","JavaScript","Bootstrap","AngularJS"];
+    allStudy["java"]= ["JavaSE","JavaEE","JavaME"];
+    allStudy["php"]=["PHP初级","PHP中级","PHP高级"];
+    allStudy["android"]=["android初级","android中级","android高级"];39.

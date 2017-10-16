@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>文字轮流滚动</title>
+  <script language="javascript" type="text/javascript" src="jquery-1.4.4.js"></script>
+  <script> 
+    function scroll_news(){
+      $(function(){
+        $('#dvmq li').eq(0).fadeOut('slow',function(){        
+        //   alert($(this).clone().html());
+       //克隆:不用克隆的话，remove()就没了。
+            $(this).clone().appendTo($(this).parent()).fadeIn('slow');
+            $(this).remove();
+        });
+     });
+}
+    setInterval('scroll_news()',1000);
+  </script>
+</head>
+<body>
+  <div id="dvmq" style="width:363px; height: 32px;" >
+    <ul>
+       <li>1,one</li>
+       <li>2,two</li>
+       <li>3,three</li>
+       <li>4,走一步，停一停！</li>
+    </ul>
+  </div>
+</body>
+</html>

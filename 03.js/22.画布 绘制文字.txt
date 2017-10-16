@@ -1,0 +1,95 @@
+function test(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	//绘制不填充的文字
+    	ctx.beginPath();
+    	ctx.font="80px 宋体";
+    	ctx.strokeStyle="#9932CC";
+    	ctx.strokeText("生于忧患,死于安乐",200,100);
+    	//绘制填充的文字
+    	ctx.beginPath();
+    	ctx.fillStyle="#FFA500";
+    	ctx.fillText("生于忧患,死于安乐",200,200);
+    	//绘制渐变色文字
+    	var lg=ctx.createLinearGradient(150,300,900,400);
+    	lg.addColorStop(0,"red");
+    	lg.addColorStop(0.4,"green");
+    	lg.addColorStop(0.6,"blue");
+    	lg.addColorStop(1,"yellow");
+    	
+    	ctx.beginPath();
+    	ctx.fillStyle=lg;
+    	ctx.fillText("生于忧患,死于安乐",200,300);
+    }
+    function mytest(color){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	
+    	var lg=ctx.createLinearGradient(50,100,1000,400);
+    	/* var allColor=color.split(","); */
+    	var allColor=colors;
+    	lg.addColorStop(0,allColor[0]);
+    	lg.addColorStop(0.2,allColor[1]);
+    	lg.addColorStop(0.4,allColor[2]);
+    	lg.addColorStop(0.6,allColor[3]);
+    	lg.addColorStop(0.8,allColor[4]);
+    	lg.addColorStop(1,allColor[5]);
+    	/* lg.addColorStop(0,"#B22222");
+    	lg.addColorStop(0.2,"#924EF5");
+    	lg.addColorStop(0.4,"#FF1493");
+    	lg.addColorStop(0.6,"#EE82EE");
+    	lg.addColorStop(0.8,"#C93BE7");
+    	lg.addColorStop(1,"#F52917"); */
+    	
+    	ctx.font="300px Verdana";
+    	ctx.fillStyle=lg;
+    	ctx.fillText("LOVE",100,350);
+    }
+    var j=0;
+    var colors=["#924EF5","#FF1493","#EE82EE","#C93BE7","#F52917","#B22222"];
+    function moreChange(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	setInterval(function(){
+    		ctx.clearRect(0,0,1000,500);//清除画布上的内容
+    		ColorRandom();//更改颜色顺序
+    		mytest();//生成图片
+    	}, 200);
+    }
+    function ColorRandom(){
+    	//1,2,3,4,5 
+		/* 
+		//第一种: 生成一组新 颜色队列
+		var color="";
+		for (var i = j; i < 6; i++) {
+			color+=colors[i]+",";
+		}
+		for (var i = 0; i < j; i++) {
+			color+=colors[i]+",";
+		}
+		if(j==5){
+			j=0;
+		}else{
+			j++;
+		}
+		return color;
+		*/
+		//第二种: 冒泡算法[每相邻两个元素切换]
+		var temp="";
+		for (var i = 0; i < colors.length-1; i++) {
+			temp=colors[i];
+			colors[i]=colors[i+1];
+			colors[i+1]=temp;
+		}
+    }
+    </script>
+
+
+
+<div style="width: 200px;margin: 10px auto;">
+ 	<h1>绘制文字测试</h1>
+  	<input type="button" value="绘制" onclick="test()"><input type="button" value="综合" onclick="moreChange()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>

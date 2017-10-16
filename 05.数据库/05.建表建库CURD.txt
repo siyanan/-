@@ -1,0 +1,72 @@
+为什么进行数据类型划分?
+通常软件中会含有大量的数据:
+
+张三 男  23 山西省大同市南郊区兴云街88号 
+23 山西省大同市南郊区兴云街88号 所需空间相同?
+
+
+为了合理的使用系统资源,将不同的数据划分不同的数据类型.
+根据数据类型的不同,分配不同的存储空间.
+
+
+java数据类型: 基本数据类型[整数(byte,short,int,long) 小数(float double) 字符[char) 布尔(boolean)]  引用数据类型[数组 对象 接口]
+数据库数据类型: 整数(int)  小数(float double) 字符(char varchar) 日期(date,time)
+
+
+附加:
+char与varchar区别:
+Java: char表示字符,指一个符号. [String 表示1个或多个符号,称为字符串]
+MySQL: 
+address char(10)       山西省大同市  ---->"山西省大同市    "  规定数据长度相同,固定不变.[长度不够,自动填充.超过长度,省略多余部分]
+address varchar(10)    山西省大同市 ----->"山西省大同市"  规定数据最多为几个字符.[超过长度,省略多余部分]
+
+char: 长度固定,在操作时不需要检查数据的长度,可以快速查询及其他操作. 缺点: 会浪费内存.
+varchar: 数据长度不够时,不会自动填充,可以节省内容. 缺点: 效率相对char低.
+
+(#表示注释)
+show databases;(也可以show table;)
+创建数据库实例: create database 数据库实例名;
+use 数据库实例名;
+创建表格:
+create table 表名(
+#字段名 字段类型 [约束],字段名 字段类型 [约束],..
+
+);
+
+查看表结构: desc 表名; [description]
+查询数据: 
+select * from 表名;
+select 字段名,字段名... from 表名 [where 条件];
+添加数据:
+insert into 表名 values(值1,值2,...); #必须按照表格字段顺序,对所有的字段赋值
+insert into 表名(字段名1,字段名2,..) values(值1,值2,...); # 必须按照指定的字段顺序和个数,对字段赋值
+修改数据:
+update 表名 set 字段名=值,字段名=值,... [where 条件]
+删除数据:
+delete from 表名 [where 条件]
+
+create database mydb;
+create table t1(
+id int,
+name varchar(20),
+sex char(2),
+age int,
+address varchar(30)
+);
+
+mysql> desc t1;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| sex     | char(2)     | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| address | varchar(30) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+insert into t1 values(1,'张三','男',23,'大同');
+insert into t1(name,sex) values('李四','女');
+
+update t1 set age=22;
+update t1 set id=2,address='北京' where sex='女';

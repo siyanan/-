@@ -1,0 +1,68 @@
+<script type="text/javascript">
+	$(function() {
+		if(window.WebSocket == undefined) {
+			alert("您的浏览器不支持WebSocket");
+			return;
+		}
+		socket = new WebSocket("ws://localhost:8080/notification/myws");
+		socket.onopen = function() {
+		console.log("连接已打开....");
+		};
+		socket.onmessage = function(msg) {
+			console.log("收到消息....");
+			requestPms(msg.data);//请求通知授权和显示通知
+		};
+	});
+	
+	/******************************以下为通知内容*********************************/
+	/*
+	Notification对象:
+		permission: 当前授权状态[granted,default,denied]
+		requestPermission(回调函数)
+		onshow
+		onclick
+		onerror
+		onclose
+	*/
+    function requestPms(message){
+		if(!window.Notification){
+			alert("您的浏览器不支持Notification");
+			return;
+		}
+		
+		if(Notification.permission=="granted"){
+			showNotification(message);//弹出含有指定信息的窗口
+		}else{
+			Notification.requestPermission(function(status){
+				if(status=="granted"){
+					showNotification(message);//弹出含有指定信息的窗口
+				}else if(status=="default"){
+					alert("您关闭了授权窗口");
+				}else if(status=="denied"){
+					alert("您拒绝了授权窗口");
+				}
+			});
+		}
+	}
+	function showNotification(msg){
+		//创建Notification,并设置窗口特张: 参1:标题 参2: 图标,内容
+		var myNotification=new Notification("您有新消息!",{icon:"img/white_icon.jpg",body:msg.substr(0,5)+"..."});
+		myNotification.onshow=function(){
+			console.log("通知显示了");
+		}
+		myNotification.onclose=function(){
+			console.log("通知关闭了");
+		}
+		myNotification.onclick=function(){
+			console.log("通知点击了");
+			setTimeout(function(){myNotification.close()}, 800);
+		}
+		myNotification.onerror=function(){
+			console.log("通知出错了");
+		}
+	}
+    </script>
+
+
+notification测试. <br>
+    <input type="button" value="弹出通知" onclick="requestPms('晚上八点开会!')">

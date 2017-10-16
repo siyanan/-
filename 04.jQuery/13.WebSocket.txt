@@ -1,0 +1,83 @@
+JRS-5**: 新的版本规范.
+
+Java项目: 
+JDK必须为JDK1.7及以上. JavaEE必须为JavaEE 7
+Tomcat7.27开始引入WebSocket,从tomcat7.4*才开始支持WebSocket.
+
+含有WebSocket的java项目,
+
+
+
+附加:
+Java是1995年由Sun公司正式发布的面向对象的编程语言,在2010年被Oracle公司收购.
+Java体系: JavaSE[核心语法] JavaEE[web开发] JavaME[手机应用]
+
+
+
+<style type="text/css">
+		#connectOpera{
+		width: 500px;
+		margin: 40px auto;
+		}
+		#showMessage{
+		width: 500px;
+		height: 300px;
+		overflow: auto;
+		border: 2px green solid;
+		}
+		#operaMessage{
+		width: 510px;
+		margin: 20px auto;
+		}
+</style>
+
+
+
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//判断是否支持WebSocket,尝试连接
+		$("#btnConnection").click(function(){
+			if(!window.WebSocket){
+				alert("您的浏览器不支持btnConnection");
+				return;
+			}
+			mySocket=new WebSocket("ws://localhost:8080/mywebsocket/myws");//参数: ws://主机名或IP:端口/项目名/接入点名[Java的@ServerEndpoint]
+			mySocket.onopen=function(){
+				console.log("连接建立成功!");
+			}
+			mySocket.onmessage=function(msg){
+				$("#showMessage").append("客户端:"+msg.data+"<br>");
+			}
+			mySocket.onerror=function(){
+				console.log("错误!");
+			}
+			mySocket.onclose=function(){
+				console.log("断开连接");
+			}
+		});
+		//断开连接
+		$("#btnClose").click(function(){
+			mySocket.close();
+		})
+		//发送消息
+		$("#btnSend").click(function(){
+			var sendInfo=$("#sendMessage").val();
+			$("#showMessage").append("本机:"+sendInfo+"<br>");
+			mySocket.send(sendInfo);
+		})
+	})
+</script>
+
+
+
+<div id="connectOpera">
+		连接操作:
+			<input type="button" id="btnConnection" value="连接" />
+			<input type="button" id="btnClose" value="关闭" />
+		</div>
+		<div id="operaMessage">
+		输入消息:<input type="text" id="sendMessage">
+			<input type="button" id="btnSend" value="发送" /><br><br>
+		<div id="showMessage"></div>
+</div>

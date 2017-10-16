@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+    	//设置拖拽样式效果
+    	$("#upFile").on({
+        		dragenter:function(e){//拖动的文件进入目标元素
+        			e.preventDefault();
+        			$(this).addClass("dragEnterDiv");
+        		},
+        		dragover:function(e){//拖动的文件悬停在目标元素上
+        			e.preventDefault();
+        		},
+        		dragleave:function(e){//拖动文件,离开目标元素
+        			e.preventDefault();
+        			$(this).removeClass("dragEnterDiv");
+        		},
+        		drop:function(e){//拖动的文件释放到目标元素中
+        			e.preventDefault();
+        		}
+    	});
+    	//获得存放文件的标签,设置鼠标监听释放文件事件,当释放文件后进行上传
+    	var divFile=document.getElementById("upFile");
+    	divFile.addEventListener("drop", function(e){
+    		var fileList=e.dataTransfer.files;//获得所有上传的文件
+    		//文件个数为0或上次文件不是图片类型,移除上传样式: 此处默认上传1个图片
+    		if (fileList.length==0||fileList[0].type.indexOf("image")==-1) {
+    			$("#upFile").removeClass("overDiv");
+    			return;
+			}
+    		//Ajax异步上传
+    		xhr=new XMLHttpRequest();
+    		xhr.open("post", "SaveUpFile",true);
+    		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    		xhr.onreadystatechange=function(){
+    			if(xhr.readyState==4){//请求处理结束
+    				if(xhr.status==200){//请求处理成功
+    					xhr.responseText>0?alert("上传成功!"):alert("上传失败!");
+    				}else{
+    					alert("请求处理失败!");
+    				}
+    			}
+    		}
+    		//创建表单对象,用来存放图片文件
+    		var formData=new FormData();
+    		formData.append("img1",fileList[0]);
+    		//发送请求和数据
+    		xhr.send(formData);
+    	},false);
+    })
+    </script>
+
+
+HTML5拖拽上传文件 <br>
+    <div id="upFile" class="contentDiv">
+    请将文件拖放到此处
+    </div>

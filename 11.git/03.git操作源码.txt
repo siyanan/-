@@ -1,0 +1,545 @@
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ rm demo.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ clear
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ cd css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/css
+$ vim index.css
+ls
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/css
+$ ls
+index.css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/css
+$ cd ..
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ dir
+css  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ rm css
+rm: cannot remove 'css': Is a directory
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ rm -r css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ echo "">.gitignore
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+index.html  新建文本文档.txt
+l
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls -a
+./  ../  .gitignore  index.html  新建文本文档.txt
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ vim .gitignore
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+index.html  新建文本文档.txt
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls -a
+./  ../  .gitignore  index.html  新建文本文档.txt
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ rm .gitignore
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls -a
+./  ../  index.html  新建文本文档.txt
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ rm 新建文本文档.txt
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls -a
+./  ../  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ mkdir css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ vim css/css.css
+ls
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ cd css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/css
+$ ls
+css.css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/css
+$ cd ..
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ mkdir img
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ vim js/js.js
+ls
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  img/  index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ mkdir js
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ vim js/js.js
+ls
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+css/  img/  index.html  js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ ls
+ css/   img/   index.html   js/  'progress a'/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ cd 'progress a'
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16/progress a
+$ cd ..
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16
+$ git init
+Initialized empty Git repository in C:/Users/490724276/Desktop/git-10-16/.git/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        css/
+        index.html
+        js/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+?? css/
+?? index.html
+?? js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git add index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+A  index.html
+?? css/
+?? js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git add css
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   css/css.css
+        new file:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        js/
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim README.md
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ ls
+ css/   img/   index.html   js/  'progress a'/   README.md
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+A  css/css.css
+A  index.html
+?? README.md
+?? js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim .gitignore
+ls
+ls
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ ls
+ css/   img/   index.html   js/  'progress a'/   README.md
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ ls -a
+ ./    .git/        css/   index.html  'progress a'/
+ ../   .gitignore   img/   js/          README.md
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim .gitignore
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+A  css/css.css
+A  index.html
+?? .gitignore
+?? js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ mkdir log
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim log/error.log
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   css/css.css
+        new file:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+        js/
+        log/
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim .gitignore
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+A  css/css.css
+A  index.html
+?? js/
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git add .
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+A  css/css.css
+A  index.html
+A  js/js.js
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   css/css.css
+        new file:   index.html
+        new file:   js/js.js
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git commit -m '这是第一次提交源代码'
+[master (root-commit) 628ebba] 这是第一次提交源代码
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 css/css.css
+ create mode 100644 index.html
+ create mode 100644 js/js.js
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git config --list
+core.symlinks=false
+core.autocrlf=true
+core.fscache=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+help.format=html
+rebase.autosquash=true
+http.sslcainfo=D:/Program Files (x86)/Git/Git/mingw64/ssl/certs/ca-bundle.crt
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.required=true
+filter.lfs.process=git-lfs filter-process
+credential.helper=manager
+user.email=490724276@qq.com
+user.name=zhangheng
+color.ui=true
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git config --global user.name 'zh'
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git config --list
+core.symlinks=false
+core.autocrlf=true
+core.fscache=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+help.format=html
+rebase.autosquash=true
+http.sslcainfo=D:/Program Files (x86)/Git/Git/mingw64/ssl/certs/ca-bundle.crt
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.required=true
+filter.lfs.process=git-lfs filter-process
+credential.helper=manager
+user.email=490724276@qq.com
+user.name=zh
+color.ui=true
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git config --global user.email 'zh@qq.com'
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ cat ~/.gitconfig
+[user]
+        email = zh@qq.com
+        name = zh
+[color]
+        ui = true
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status -s
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git diff
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git diff --staged
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ ls
+ css/   img/   index.html   js/   log/  'progress a'/   README.md
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ vim index.html
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git diff
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory.
+diff --git a/index.html b/index.html
+index e69de29..0e89975 100644
+--- a/index.html
++++ b/index.html
+@@ -0,0 +1,8 @@
++<!DOCTYPE html>
++<html>
++       <head></head>
++       <body>
++
++       </body>
++</html>
++
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git add .
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory.
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git diff --staged
+diff --git a/index.html b/index.html
+index e69de29..0e89975 100644
+--- a/index.html
++++ b/index.html
+@@ -0,0 +1,8 @@
++<!DOCTYPE html>
++<html>
++       <head></head>
++       <body>
++
++       </body>
++</html>
++
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git commit -m '修改了index.html文件，添加了HTML结构'
+[master da25754] 修改了index.html文件，添加了HTML结构
+ 1 file changed, 8 insertions(+)
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git log
+commit da25754198ebe9202952acd0eae982ab4618accd (HEAD -> master)
+Author: zh <zh@qq.com>
+Date:   Mon Oct 16 11:08:40 2017 +0800
+
+    修改了index.html文件，添加了HTML结构
+
+commit 628ebbabae0e1c44093965b9d984f3d524ba8c89
+Author: zhangheng <490724276@qq.com>
+Date:   Mon Oct 16 10:46:08 2017 +0800
+
+    这是第一次提交源代码
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$ git log --oneline
+da25754 (HEAD -> master) 修改了index.html文件，添加了HTML结构
+628ebba 这是第一次提交源代码
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$
+
+490724276@DESKTOP-6KPBRA0 MINGW64 ~/Desktop/git-10-16 (master)
+$

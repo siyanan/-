@@ -1,0 +1,31 @@
+在html中
+
+<html manifest="baidu.manifest">
+
+建立file文件
+
+CACHE MANIFEST
+baidu.html
+js/jquery-1.6.4.min.js
+images/top.png
+images/logo.gif
+images/bt.png
+images/body.png
+NETWORK:
+login.asp
+//下面的 NETWORK 小节规定文件 "login.asp" 永远不会被缓存，且离线时是不可用的：
+NETWORK:
+*
+可以使用星号来指示所有其他资源/文件都需要因特网连接：
+
+
+
+/*
+
+
+CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
+NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）
+
+
+*/

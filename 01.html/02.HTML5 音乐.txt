@@ -1,0 +1,88 @@
+<script type="text/javascript">
+    $(function(){
+    	var myaudio=document.getElementById("myaudio");
+    	//快退
+    	$("#playbar img:eq(0)").click(function(){
+    		myaudio.currentTime-=5;
+    	})
+    	//快进
+    	$("#playbar img:eq(2)").click(function(){
+    		myaudio.currentTime+=5;
+    	})
+    	//播放
+    	$("#playbar img:eq(1)").click(function(){
+    		if (myaudio.paused) {//暂停状态-->播放
+    			myaudio.play();
+    			$(this).attr("src","mediafiles/playbar/pause.png");
+			}else{//播放状态--->暂停
+				myaudio.pause();
+				$(this).attr("src","mediafiles/playbar/play.png");
+			}
+    	})
+    	//显示音量控制按钮
+    	$("#vol_div").click(function(){
+    		$("#vol_div div").show();
+    	}).mouseleave(function(){
+    		$("#vol_div div").hide();
+    	})
+    	//控制音量
+    	$("#vol_div div img").click(function(){
+    		var nowImgIndex=$(this).index();
+    		console.log(myaudio.volume)
+    		if (nowImgIndex==0) {//+音量
+    			myaudio.muted=false;//解除可能存在的静音
+    			
+    			myaudio.volume<0.9?myaudio.volume+=0.1:myaudio.volume=1;
+    			$("#vol_div div img:eq(2),#vol_div>img").attr("src","mediafiles/playbar/volumeImg/static.png");
+			}else if (nowImgIndex==1){//-音量
+				myaudio.muted=false;//解除可能存在的静音
+				if(myaudio.volume>0.1){
+					myaudio.volume-=0.1
+					$("#vol_div div img:eq(2),#vol_div>img").attr("src","mediafiles/playbar/volumeImg/static.png");
+				}else{
+					myaudio.volume=0;//音量为0--静音
+					$("#vol_div div img:eq(2),#vol_div>img").attr("src","mediafiles/playbar/volumeImg/mute.png");
+				}
+			}else if (nowImgIndex==2){//静音控制
+				if (myaudio.muted) {//静音-->非静音
+					myaudio.muted=false;
+					$("#vol_div div img:eq(2),#vol_div>img").attr("src","mediafiles/playbar/volumeImg/static.png");
+				} else {//正常--->静音
+					myaudio.muted=true;
+					$("#vol_div div img:eq(2),#vol_div>img").attr("src","mediafiles/playbar/volumeImg/mute.png");
+				}
+			}
+    	})
+    });
+    </script>
+
+
+
+音频DOM测试 <br>
+    <!-- 
+    自定义音频控制按钮: 播放/暂停 音量 快进/快退等
+     -->
+     <div align="center">
+     	 <!-- 音乐封面 -->
+	     <img src="mediafiles/initImage.gif" width="400px">
+	     <!-- 音乐播放器 -->
+	     <audio style="width: 500px;" id="myaudio">
+	     <source src="mediafiles/Here With You1.mp3">
+	     <source src="mediafiles/The Day You Went Away.mp3">
+	     </audio>
+	     <!-- 音乐控制条 -->
+	     <div id="playbar">
+		     <img src="mediafiles/playbar/back.png">
+		     <img src="mediafiles/playbar/play.png">
+		     <img src="mediafiles/playbar/forward.png">
+		     <div id="vol_div">
+		    	<div>
+		    	<img src="mediafiles/playbar/volumeImg/vol+.png">
+		    	<img src="mediafiles/playbar/volumeImg/vol-.png">
+		    	<img src="mediafiles/playbar/volumeImg/static.png">
+		    	</div>
+		    	<img src="mediafiles/playbar/volumeImg/static.png">
+		     </div>
+	     </div>
+     </div>
+

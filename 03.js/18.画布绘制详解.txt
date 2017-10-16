@@ -1,0 +1,125 @@
+<script type="text/javascript">
+    function test(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	//绘制 水平直线
+    	ctx.beginPath();
+    	ctx.strokeStyle="red";
+    	ctx.moveTo(100,100);
+    	ctx.lineTo(300,100);
+    	ctx.stroke();
+    	//绘制垂直直线
+    	ctx.beginPath();
+    	ctx.strokeStyle="blue";
+    	ctx.moveTo(100,100);
+    	ctx.lineTo(100,300);
+    	ctx.stroke();
+    	//绘制斜线
+    	ctx.beginPath();
+    	ctx.strokeStyle="#7FFF00";
+    	ctx.moveTo(100,300);
+    	ctx.lineTo(300,400);
+    	ctx.stroke();
+    	
+    	//绘制间断的直线: 虚线
+    	ctx.beginPath();
+    	ctx.lineWidth="10";
+    	ctx.strokeStyle="#7FFF00";
+    	ctx.moveTo(100,450);
+    	ctx.lineTo(120,450);
+    	
+    	ctx.moveTo(130,450);
+    	ctx.lineTo(150,450);
+    	
+    	ctx.moveTo(160,450);
+    	ctx.lineTo(180,450);
+    	
+    	ctx.moveTo(190,450);
+    	ctx.lineTo(210,450);
+    	ctx.stroke();
+    }
+    function mytest(){
+    	
+    	//总长:1000 高:500  上中:500,0 下中:500,500 左中:0,250 右中:1000,250 中心:500,250
+    	var c=document.getElementById("myCanvas");
+    	ctx=c.getContext("2d");
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(60+x,230+y);
+    	ctx.lineTo(60+x,300+y);
+    	ctx.lineTo(160+x,265+y);
+    	ctx.closePath();
+    	ctx.lineWidth=5;//设置线的粗细
+    	ctx.stroke();
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(60+x,250+y);
+    	ctx.lineTo(50+x,250+y);
+    	ctx.moveTo(60+x,280+y);
+    	ctx.lineTo(50+x,280+y);
+    	ctx.lineWidth=15;//设置线的粗细
+    	ctx.stroke();
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(50+x,245+y);
+    	ctx.lineTo(40+x,245+y);
+    	ctx.moveTo(50+x,250+y);
+    	ctx.lineTo(40+x,250+y);
+    	ctx.moveTo(50+x,254+y);
+    	ctx.lineTo(40+x,254+y);
+    	/*---------------*/
+    	ctx.moveTo(50+x,285+y);
+    	ctx.lineTo(40+x,285+y);
+    	ctx.moveTo(50+x,281+y);
+    	ctx.lineTo(40+x,281+y);
+    	ctx.moveTo(50+x,275+y);
+    	ctx.lineTo(40+x,275+y);
+    	ctx.lineWidth=1;//设置线的粗细
+    	ctx.strokeStyle="red";
+    	ctx.stroke();
+    	
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(100+x,244+y);
+    	ctx.lineTo(115+x,244+y);
+    	ctx.moveTo(100+x,286+y);
+    	ctx.lineTo(115+x,286+y);
+    	ctx.lineWidth=5;//设置线的粗细
+    	ctx.strokeStyle="black";
+    	ctx.stroke();
+    	
+    	ctx.beginPath();
+    	ctx.moveTo(60+x,257+y);
+    	ctx.lineTo(138+x,257+y);
+    	ctx.moveTo(60+x,273+y);
+    	ctx.lineTo(138+x,273+y);
+    	ctx.lineWidth=5;//设置线的粗细
+    	ctx.strokeStyle="black";
+    	ctx.stroke();
+    }
+    
+        x=0;
+	y=150;
+	z=-15;
+    function startShow(){
+    	mytest();
+    	ctx.rotate(z*Math.PI/180);//旋转飞机角度
+    	
+    	time=setInterval(function(){
+    		ctx.clearRect(-100,0,1000,500);
+    		x+=5;
+        	y-=1;
+    		mytest();
+    		x>800?clearInterval(time):0;
+    	}, 10);
+    }
+    </script>
+
+
+ <div style="width: 200px;margin: 10px auto;">
+ 	<h1>画线测试</h1>
+  	<input type="button" value="绘制" onclick="test()"><input type="button" value="综合" onclick="startShow()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>

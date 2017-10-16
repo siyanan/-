@@ -1,0 +1,260 @@
+老师：黄贤存   手机号：18601909705
+2017.5.13
+一、互联网开发的基本流程：
+1、需求分析：
+       a、目地是什么？
+       b、针对的人群是什么？ 
+       c、行业特点的风格
+       d、重点是做什么？
+       e、关键词？
+       f、开发语言  数据库  编程
+       g、服务器性能
+       h、维护和管理
+       i、编写一个方案书
+2、UI设计   用户界面设计
+       a、画一个草图
+       b、设计效果图
+3、制作：切图
+           html+css
+           html5+css3
+           js的基础
+           ps,至少三天时间
+4、特效及功能的开发：
+      *js     
+      *jQuery   js库：写的最少，做的最多
+      bootstrap    UI框架  响应式的框架
+      angularJS    主要开发app
+      vue.js
+       jQuery    mobile 移动端ui框架
+      html5主流框架  webapp
+
+      seo搜索引擎关键词优化
+5、管理功能的开发：
+      node js
+   myspl
+    php 
+   dedecms
+   phpcms
+   wordpress
+   
+
+        a、数据库的结构设计
+        b、功能的实现 
+        c、用户会员管理功能的实现
+6、测试并发布：网址解析和绑定
+7、内容更新与维护：
+二、项目需求分析：
+     1、垂直门户：法律行业
+     2、  
+三：需要掌握知识点：
+ 
+
+掌握互联网发展方向有三大巨头：BAT\
+      百度：流量  1亿  每人4次/每天
+                seo 搜索引擎关键词优化
+      阿里巴巴：交易	1207亿
+      腾讯：用户   7亿，6亿
+         微信：240万
+         微博：4300多万的粉丝    大闹天竺  9亿
+         
+
+
+一、图形与图像
+      什么图形：矢量图
+      图像：由一个个像素点组成
+            分辨率：72/px英寸
+           300英寸
+       rgb：三原色
+      文件格式：psd保留图层
+alt,shift删除、添加选区
+ps工具栏：
+1、移动工具（v)     ctrl+alt复制
+2、选区工具(M)         正圆shift
+     取并集： shift+拖动鼠标
+     取交集：alt+拖动鼠标
+前景色填充：alt+delete
+背景色填充：ctrl+delete
+3、套索工具：
+快速蒙版（q）
+2017.5.17
+一、画一个草图：
+
+二、根据草图设计效果图
+    要精细一些，你的效果怎么样，将来作出来的东西和效果图一致
+
+色彩常识：
+   暖色调：一般用于服务类型网站或者企业
+   橙色：一般用于饭店或者服务业
+   红色：最醒目的色彩，其他网站用红色点缀，比如热点
+   蓝色：深远，宇宙，一般用于科技公司
+   绿色：偏黄，稚嫩，小孩子的网站
+         深绿，健康，稳重
+   灰色：万能色，可以和任何一种颜色搭配
+   黄色：权贵，富贵，酒店，宾馆，金融
+20175.17
+导航条不超过45像素
+2017.5.21
+pc端首页界面
+频道页
+列表
+详细内容页
+新建  1200*3000  画布大小  1400*3000
+博法网   48号字体
+
+字体颜色 222222
+全国站14点
+城市切换12点
+调色相/饱和度  换搜索框颜色
+ctrl+alt  复制选区内容
+法律咨询分类  16点
+婚姻家庭  14点   ffffff
+   （子类）离婚    12点  浅色 
+f6f6f6   浅灰色
+D键  背景色和前景色变为最原始的黑白
+欢迎你访问博法网    高35像素
+logo   100像素
+左，右各250像素
+15个像素的空隙
+滚动广告   16：9
+2017.5.24
+    WEB前端开发
+    软件架构/软件模式
+目前常见的软件模式：c/s模式    B/S模式
+C/S模式：客户端/服务器。在此模式下，需要
+    2017.5.25
+alt+?提示
+易企秀
+2017.5.27
+style=position
+API:application program Interface[应用编程接口]
+手机APP:手机软件 手机程序
+OS:operating system[操作系统]
+IOS:iphone operating system[苹果操作系统]
+COS:china operating system[中国操作系统]
+2017.6.2
+复制 shift+alt
+<span></span>用于小段文字.(和<p></p>相比)
+
+2017.6.5
+backgroung-size:cover;改变背景大小。
+border-radius:10px;框框变为圆角。
+
+2017.7.19
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="www.w3.org/1999/xhtml">
+代码正确,但有错位时可以用.让显示的更加准确
+
+
+去掉<ul></ul>标签前面的点
+list-style-type: none;
+把<ul></ul>标签前面的点包括进去
+list-style-position: inside;
+
+
+服务商|服务商|服务商|服务商     例子
+<div id="dropDown">
+      <span id="sp1">
+         <b>热点频道：</b>
+         <a href="#">&nbsp;公益平台 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;招赢通 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;金葵花理财 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;私人银行 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;出国金融 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;现金管理 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;空中银行 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;财智生活网 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;投资者关系 &nbsp;</a><span>|</span>
+         <a href="#">&nbsp;社区  &nbsp;</a>|
+         <a href="#">&nbsp;微博  &nbsp;</a>
+      </span>
+</div>
+
+
+一列一列的底部链接
+<style type="text/css">
+.foot_sub{
+    display: inline-block;
+    background-color: #F5F5F5;
+    margin-top: 20px;
+}
+.foot_sub dl{
+    float: left;
+    height: 160px;
+    width: 170px;
+}
+.foot_sub dd{
+    color: #545454;
+    line-height: 22px;
+    width: 110px;
+    height: 22px;
+    margin: 0px auto;
+    cursor: pointer;
+    text-align: left;
+}
+.foot_sub dt{
+    font-size: 14px;
+    color: #545454;
+    line-height: 30px;
+    width: 110px;
+    height: 30px;
+    margin: 0px auto;
+    cursor: pointer;
+    text-align: left;
+}
+.foot_sub dd:hover{
+    color: #FF7700;
+    text-decoration: underline;
+}
+
+</style>
+
+
+<div class="foot_sub">
+            <dl>
+                <dt><b>购物指南</b></dt>
+                <dd>导购演示</dd>
+                <dd>免费注册</dd>
+                <dd>会员等级</dd>
+                <dd>常见问题</dd>
+                <dd>品牌大全</dd>
+            </dl>
+            <dl>
+                <dt><b>支付方式</b></dt>
+                <dd>苏宁支付</dd>
+                <dd>网银支付</dd>
+                <dd>快捷支付</dd>
+                <dd>分期付款</dd>
+                <dd>货到付款</dd>
+                <dd>任性付支付</dd>
+            </dl>
+            <dl>
+                <dt><b>物流配送</b></dt>
+                <dd>免运费政策</dd>
+                <dd>配送服务承诺</dd>
+                <dd>签收验货</dd>
+                <dd>物流查询</dd>
+            </dl>
+            <dl>
+                <dt><b>售后服务</b></dt>
+                <dd>退换货政策</dd>
+                <dd>退换货流程</dd>
+                <dd>购买延保服务</dd>
+                <dd>退款说明</dd>
+                <dd>退换货申请</dd>
+                <dd>维修/保养</dd>
+            </dl>
+            <dl>
+                <dt><b>商家服务</b></dt>
+                <dd>商家入驻</dd>
+                <dd>培训中心</dd>
+                <dd>广告服务</dd>
+                <dd>商家帮助</dd>
+                <dd>市场服务</dd>
+                <dd>规则中心</dd>
+            </dl>
+            <dl>
+                <dt><b>身边苏宁</b></dt>
+                <dd>全国300个城市1600家门店3000个服务点为您提供最贴心的服务！</dd>
+            </dl>
+
+        </div>

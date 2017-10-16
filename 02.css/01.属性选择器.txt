@@ -1,0 +1,62 @@
+<style type="text/css">
+  	div{width: 150px;height: 150px;border: 2px red solid;margin: 10px 2px;float: left;}
+  	/*--------------------CSS2属性选择器---------------------*/
+  	/*CSS2: [属性名]: 设置含有id属性的div的背景颜色 */
+  	div[id]{
+  	background-color: yellow;
+  	}
+  	/*CSS2: [属性名=值]:设置id=div1的div的字体颜色  */
+  	div[id='div1']{
+  	color:red;
+  	}
+  	/*CSS2: [属性名|=值]: 设置title=en或以"en-"开头的div的宽度  */
+  	div[title|='en']{
+  	width: 200px;
+  	}
+  	/*CSS2: [属性名~=值]: 设置title=uk或含有"uk "," uk"的div的字体颜色  */
+  	div[title~='uk']{
+  	color: blue;
+  	}
+  	/*--------------------CSS2属性选择器延伸---------------------*/
+  	/*[属性名!=值]: 设置id不是div1的div的字体颜色  */
+  	div[id!='div1']{
+  	color: white;
+  	}
+  	/*CSS2: [属性名][属性名=值]: 设置含有id属性且title=en的div的高度  */
+  	div[id][title='en']{
+  	height: 250px;
+  	}
+  	
+  	
+  	/*--------------------CSS3属性选择器---------------------*/
+  	/*CSS3: [属性名^=值]: 设置title以en开头的div的字体加粗  */
+  	div[title^='en']{
+  	font-weight: bold;
+  	}
+  	/*CSS3: [属性名$=值]: 设置title以uk结尾的div的边框  */
+  	div[title$='uk']{
+  	border: 2px blue solid;
+  	}
+  	/*CSS3: [属性名*=值]: 设置title中含有uk的div内边距  */
+  	div[title*='uk']{
+  	padding: 20px;
+  	}
+  	</style>
+
+
+
+<!-- 
+  * CSS的属性选择器,更确切说是属性过滤选择器.
+  * jQuery完全支持CSS1,2的所有选择器,支持大部分的CSS3选择器.
+  * 综上,CSS的属性选择器编写思路与jQuery基本相同.
+  *
+  * 过滤选择器:
+  * 选择器A:过滤类型
+  * 选择器A可选,若没有选择器A,将对所有标签进行过滤
+   -->
+    CSS属性选择器测试.<br>
+     <div id="div1" title="en">id="div1" title="en"</div>
+     <div id="div2" title="en-UK">id="div2" title="en-UK"</div>
+     <div class="divtag" title="en_glish">class="divtag" title="en_glish"</div>
+     <div class="divtag" title="aen1 uk">class="divtag" title="aen1 uk"</div>
+     <div title="uken">title="uken"</div>

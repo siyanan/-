@@ -1,0 +1,82 @@
+数据库: 用于管理和分配数据的一种软件/软件系统.
+数据库分类型: 关系数据库,网格型数据,层次数据库.
+
+常用的数据库类型为: 关系数据库 
+常见的关系型数据库: SQL Server, MySQL,Oracle,Access等等
+
+Web SQL: 客户端通过数据库及命令存储数据.
+
+数据库操作步骤:
+数据库实际看做一个 粮食公司,公司中根据种类分为不同的区域/仓库[数据库实例],仓库中以袋子/盒子为单位存储粮食[表格]
+
+
+软件[粮食公司]--->数据库实例[仓库]--->表格[袋子]
+
+创建数据库实例: openDatabases() [数据库软件: create database 数据库实例名;]
+创建表格: create table 表名(字段名 字段类型 [约束],字段名 字段类型 ....);
+添加数据: insert into 表名 values(值1,值2,值3,...); //必须依次对所有字段赋值  
+          insert into 表名(字段名,字段名,.. ) values(值1,值2,值3,...);  //对指定字段依次赋值
+
+修改数据: update 表名 set 字段名=值,字段名=值,... [where 条件];//对满足条件的数据,进行修改
+删除数据: delete from 表名  [where 条件]; //删除满足条件的数据
+查询数据: select 字段名,字段名,.. from 表名 [where 条件];// 查询满足条件的数据中的指定字段
+	 select *  from 表名;//查询表格所有数据
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+    	$("#bt1").click(function(){
+    		mydb=openDatabase("cstp","1.0","WebSQL 测试",1024*1024*2,function(){console.log("cstp创建成功")});
+    		mydb.transaction(function(executeObj){//executeObj中文意思为执行对象,用于执行SQL语句
+    			var sql="create table mycstp(name varchar(20),sex char(2),age int ,address varchar(20))";
+    			executeObj.executeSql(sql);
+    		});
+    	});
+    	$("#bt2").click(function(){
+    		mydb.transaction(function(executeObj){//executeObj中文意思为执行对象,用于执行SQL语句
+    			var sql1="insert into mycstp values('张三','男',23,'大同')";
+    			var sql2="insert into mycstp values(?,?,23,?)";//?称为 占位符
+    			executeObj.executeSql(sql1);
+    			executeObj.executeSql(sql2,['小四','女','北京']);
+    		});
+    	});
+    	$("#bt4").click(function(){
+    		mydb.transaction(function(executeObj){//executeObj中文意思为执行对象,用于执行SQL语句
+    			var sql="update mycstp set name=?,sex=? where name=?";
+    			executeObj.executeSql(sql,['AA','男','小四']);
+    		});
+    	});
+    	$("#bt5").click(function(){
+    		mydb.transaction(function(executeObj){//executeObj中文意思为执行对象,用于执行SQL语句
+    			var sql="delete from mycstp where rowid=?";
+    			executeObj.executeSql(sql,[2]);
+    		});
+    	});
+    	
+    	$("#bt3").click(function(){
+    		mydb.transaction(function(executeObj){//executeObj中文意思为执行对象,用于执行SQL语句
+    			var sql="select *  from mycstp";
+    			executeObj.executeSql(sql,[],function(executeObj,resultset){
+    				var all=resultset.rows.length;
+    				for(var i=0;i<all;i++){
+    					var rowData=resultset.rows[i];
+    					$("#userInfo").append(rowData.name+","+rowData.sex+","+rowData.age+"<br>");
+    				}
+    			});
+    		});
+    	});
+    })
+    </script>
+
+
+Web SQL测试 <br>
+    <input id="bt1" type="button" value="创建数据库和表格"><br>
+    <input id="bt2" type="button" value="添加数据"><br>
+    <input id="bt3" type="button" value="查询数据"><br>
+    <input id="bt4" type="button" value="修改数据"><br>
+    <input id="bt5" type="button" value="删除数据"><br><br><br>
+    
+    查询结果:<br>
+    <div id="userInfo"></div>

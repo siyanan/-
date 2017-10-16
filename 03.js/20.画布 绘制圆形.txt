@@ -1,0 +1,42 @@
+function test(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	//绘制圆形路径   //绘制圆形路径    arc(圆心x,圆心y,半径,起始位置,结束位置)
+    	ctx.beginPath();
+    	ctx.arc(150,150,100,0,2*Math.PI);
+    	ctx.strokeStyle="#9932CC";
+    	ctx.lineWidth="5";
+    	ctx.fillStyle="#7CFC00";
+    	ctx.stroke();
+    	ctx.fill();
+    	
+    	//绘制曲线
+    	ctx.beginPath();
+    	ctx.arc(450,150,100,-1*Math.PI,0);
+    	ctx.stroke();
+    	//绘制扇形
+    	ctx.beginPath();
+    	ctx.arc(750,150,100,1.2*Math.PI,1.8*Math.PI);
+    	ctx.lineTo(750,150);
+    	ctx.closePath();
+    	ctx.stroke();
+    	ctx.fill();
+    	
+    	//画圆角:arcTO(起点X,起点Y,结束点X,结束点Y,半径R);
+    	ctx.beginPath();
+    	ctx.moveTo(80,300);
+    	ctx.lineTo(200,300);
+    	ctx.arcTo(250,300,250,350,50);
+    	ctx.lineTo(250,450);
+    	ctx.stroke();
+    }
+    </script>
+
+<div style="width: 200px;margin: 10px auto;">
+ 	<h1>绘制圆形测试</h1>
+  	<input type="button" value="绘制" onclick="test()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>
+

@@ -1,0 +1,94 @@
+<script type="text/javascript">
+    /*
+     * 画布绘图步骤:
+     * 1.获得canvas标签: 画布对象
+     * 2.获得画布环境: 2d
+     * 3.定义新路径
+     * 4.使用方法,绘制线,形状,圆等
+     * 5.填充颜色或绘制路径
+     *
+     * 常用方法:
+     * beginPath()
+     * stroke()
+     * fill()
+     * moveTo(X,Y);
+    
+     * stroke()
+     * fill()
+     * 常用属性:
+     * strokeStyle
+     * fillStyle
+     */
+    function test(){
+    	//获得画布对象,获得画布的2d环境
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	
+    	//绘制水平线
+    	ctx.beginPath();//创建新路径
+    	ctx.lineWidth="10";
+    	ctx.strokeStyle="red";
+    	ctx.moveTo(100,100);//将画笔移动到指定位置,开始绘画
+    	ctx.lineTo(200,100);//将当前点链接到指定点
+    	ctx.stroke();//描出 路径
+    	//绘制垂直线
+    	ctx.beginPath();//创建新路径
+    	ctx.lineWidth="5";
+    	ctx.strokeStyle="blue";
+    	ctx.moveTo(100,120);//将画笔移动到指定位置,开始绘画
+    	ctx.lineTo(100,220);//将当前点链接到指定点
+    	ctx.stroke();//描出 路径
+    	//绘制斜线
+    	ctx.beginPath();
+    	ctx.lineWidth="5";
+    	ctx.strokeStyle="green";
+    	ctx.moveTo(120,250);
+    	ctx.lineTo(230,100);
+    	ctx.stroke();//描出 路径
+    	
+    	
+    	//绘制问题: 样式问题,重复设置样式,覆盖处理
+    	ctx.beginPath();
+    	ctx.lineWidth="5";
+    	ctx.strokeStyle="gray";
+    	ctx.moveTo(410,100);
+    	ctx.lineTo(610,100);
+    	
+    	
+    	ctx.strokeStyle="#FFD700";
+    	ctx.moveTo(410,200);
+    	ctx.lineTo(610,200);
+    	
+    	ctx.lineWidth="20";
+    	ctx.stroke();//描出 路径
+    	//绘制问题:样式延用,延用之前的/默认的样式
+    	ctx.beginPath();
+    	ctx.strokeStyle="red";
+    	ctx.moveTo(410,150);
+    	ctx.lineTo(700,150);
+    	ctx.stroke();
+    	//绘制问题: 新旧连接问题,未开启新路径且未设置新起点
+    	ctx.beginPath();
+    	ctx.moveTo(310,250);
+    	ctx.lineTo(510,250);
+    	ctx.stroke();
+    	
+    	//ctx.beginPath();
+    	ctx.lineTo(310,350);
+    	ctx.lineTo(510,350);
+    	ctx.stroke();
+    }
+    </script>
+
+
+
+<div style="width: 200px;margin: 20px auto;">
+ 	<h1>画布绘制思路 </h1>
+  	<input type="button" value="绘制" onclick="test()"><br>
+  </div>
+
+    <!-- 定义画布标签 -->
+     <canvas width="800px" height="400px"  id="myCanvas" style="border: 1px #ccc solid;margin: 20px auto;display:block;">
+     您的浏览器不支持canvas标签
+     </canvas>
+

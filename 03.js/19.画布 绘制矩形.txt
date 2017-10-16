@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    function test(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	//绘制矩形路径
+    	ctx.rect(100,100,200,100);
+    	ctx.strokeStyle="red";
+    	ctx.fillStyle="yellow";
+    	ctx.stroke();
+    	ctx.fill();
+    	
+    	//绘制矩形形状
+    	//ctx.beginPath();
+    	ctx.strokeRect(350,100,150,100);
+    	
+    	//绘制矩形图像
+    	ctx.fillRect(550,100,100,100);
+    	
+    	//清除指定矩形区域的图像
+    	ctx.clearRect(180,140,50,50);
+    	ctx.clearRect(0,0,250,250);
+    }
+    </script>
+
+
+<div style="width: 200px;margin: 10px auto;">
+ 	<h1>绘制矩形测试</h1>
+  	<input type="button" value="绘制" onclick="test()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>

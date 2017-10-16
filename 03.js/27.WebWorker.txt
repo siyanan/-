@@ -1,0 +1,57 @@
+Java线程:
+
+线程的创建: 继承 实现
+线程的管理: sleep() join() wait() ......
+
+
+WebWorker: 基本能够实现两个程序独立运行. 主要提高运行速度,降低干扰.
+
+进程: 每个软件启动,至少会有1个进程. 进程代表了软件.
+线程,称为轻量级进程. 一个进程中会含有多个线程.
+
+
+
+ <script type="text/javascript">
+    function test(){
+    	if(typeof(Worker)!=="undefined"){//window.Worker同效
+    		console.log("浏览器支持Web Worker");
+   		}else{
+   			console.log("浏览器不支持Web Worker");
+   			return;
+   		}
+    	
+    	console.log("test线程开始...");
+    	myWorker=new Worker("myWorker.js");//创建子线程
+    	myWorker.start();
+    	/* myWorker.postMessage("我是test");//在主线程 通过 子线程对象,向子线程传递数据
+    	myWorker.onmessage=function(event){ //当获得消息后,执行此函数
+    		console.log("worker线程消息: "+event.data);
+    	} */
+    	alert("你确定开始吗?");
+    	var sum=0;
+    	for (var i = 0; i <1000; i++) {
+			console.log("test: "+i+" ");
+			sum+=i;
+		}
+    	console.log("test线程结束...");
+    }
+    </script>
+
+
+
+This is my HTML page. <br>
+    <input type="button" value="确定" onclick="test()">
+
+
+创建一个js文件
+/*
+ * 当前JS文件,实际为一个Worker线程对象.
+ * worker对象是全局.
+ */
+	//postMessage("我是worker线程--worker");//防止没有收到消息就执行,因此放在onmessage中
+	console.log("myWorker线程开始...");
+	for (var i = 0; i < 10; i++) {
+		console.log("myWorker: "+i);
+	}
+	console.log("myWorker线程结束...");
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>动态时间.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script type="text/javascript">
+    function test(){
+    	//清除画布上旧的内容,防止新旧内容重叠
+    	ctx.clearRect(0,0,1000,500);
+    	
+    	ctx.save();//保存当前状态
+    	ctx.translate(500,250);//设置新的原点位置
+    	//时针,分钟,秒针  时刻度 分刻度  中心[针交叉点] 都受此次位置影响
+    	ctx.rotate(-90*Math.PI/180);//角度由3点钟位置,旋转到12点钟位置
+    	
+    	//绘制圆: 表框
+    	ctx.beginPath();
+    	ctx.arc(0,0,200,0,2*Math.PI);
+    	ctx.strokeStyle="#9932CC";
+    	ctx.lineWidth="2";
+    	ctx.stroke();
+    	
+    	//绘制矩形: 时刻度
+    	ctx.save();//保存当前状态
+    	ctx.rotate(30*Math.PI/180);
+    	for (var i = 1; i <=12; i++) {
+    		//ctx.fillRect(185,0,15,5);
+    		ctx.fillText(i,187,0)
+    		ctx.rotate(30*Math.PI/180);
+		}
+    	ctx.restore();//恢复
+    	
+    	//绘制矩形: 分刻度
+    	ctx.save();//保存当前状态
+    	for (var i = 0; i < 60; i++) {
+    		if (i%5!=0) {
+    			ctx.fillRect(190,0,10,2);
+			}
+    		ctx.rotate(6*Math.PI/180);
+		}
+    	ctx.restore();//恢复
+    	
+    	//绘制圆形: 表中心
+    	ctx.save();//保存当前状态
+		ctx.beginPath();
+		ctx.arc(0,0,5,0,2*Math.PI);
+		ctx.fill();
+		ctx.restore();//恢复
+		
+		
+		var date=new Date();//获得当前日期
+		var h=date.getHours();
+		var m=date.getMinutes();
+		var s=date.getSeconds();
+		//绘制时针
+		hourPoint(h,m,s);
+		//绘制分针
+		minuPoint(m,s);
+		//绘制秒针
+		secPoint(s)
+		
+		ctx.restore();//恢复: 取消 整体旋转的90度
+    }
+    function hourPoint(h,m,s){
+    	ctx.save();
+    	//i=i>12?(i-12):i;
+    	//设置旋转角度: 1小时30度 计算出 当前总共的小时数[时,分,秒] *30即可
+    	ctx.rotate((h+m/60+s/3600)*30*Math.PI/180);
+    	//绘制时针
+		ctx.beginPath();
+		ctx.moveTo(-20,-2);//左下角
+		ctx.lineTo(-20,2);//右下角
+		ctx.lineTo(80,2);//右中角
+		ctx.lineTo(100,1);//右上角
+		ctx.lineTo(100,-1);//左上角
+		ctx.lineTo(80,-2);//左中角
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+    }
+    function minuPoint(m,s){
+    	ctx.save();
+    	//设置旋转角度: 1分钟6度 计算出 当前 总分钟数[分,秒]*6
+    	ctx.rotate((m+s/60)*6*Math.PI/180);
+    	//绘制分针
+		ctx.beginPath();
+		ctx.moveTo(-15,-3);//左下角
+		ctx.lineTo(-15,3);//右下角
+		ctx.lineTo(100,3);//右中角
+		ctx.lineTo(150,1);//右上角
+		ctx.lineTo(150,-1);//左上角
+		ctx.lineTo(100,-3);//左中角
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+    }
+    function secPoint(s){
+    	ctx.save();
+    	//设置旋转角度: 1秒6度 [分针和秒针 每次都是跳1格,6度]
+    	ctx.rotate(s*6*Math.PI/180);
+    	//绘制秒针
+		ctx.beginPath();
+		ctx.moveTo(-10,-5);//左下角
+		ctx.lineTo(-10,5);//右下角
+		ctx.lineTo(100,5);//右中角
+		ctx.lineTo(185,1);//右上角
+		ctx.lineTo(185,-1);//左上角
+		ctx.lineTo(100,-5);//左中角
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+    }
+    
+    function showTime(){
+    	var c=document.getElementById("myCanvas");
+    	ctx=c.getContext("2d");
+		//ctx.strokeRect(0,0,100,100);
+		setInterval(function(){
+			test();//绘制表盘
+		}, 100);
+    }
+    </script>
+  </head>
+  
+  <body>
+  <!-- 
+  * 思路:
+  * 1.绘制的起始角为 3点钟位置[水平线 右侧],时钟起点为12点钟位置[垂直线 上侧],因此需要处理角度偏差
+  * 解决办法:
+  * 第一种: 绘制之前,整体旋转-90,将起始角旋转到 12点钟位置[X差值大,Y差值小]
+  * 第二种: 不做整体旋转,制作时针,分针,秒针时 朝向12点位置即可[Y差值大,X差值小]
+  * 2.绘制刻度: 时刻度和分刻度分开处理.
+  * 绘制时刻度之前,保存环境,绘制结束后恢复环境,防止多次旋转造成角度误差.
+  * 绘制分刻度,同理
+  * 3.计算表针旋转度数
+  * 时针角度: 当前时+分钟转为时+秒转为时=总时  ,比如 1:30:30 1.5083时
+  * 分针角度: 当前分+秒转为分=总分, 比如: 30:30 30.5分
+  * 角度: 30度/时  6度/分  6度/秒
+   -->
+    <div style="width: 200px;margin: 10px auto;">
+  	<input type="button" value="绘制" onclick="showTime()"><br>
+  	</div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>
+  </body>
+</html>

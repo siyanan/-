@@ -1,0 +1,136 @@
+<script type="text/javascript">
+    var allImg=5;//总图片数
+    var nowImg=1;//默认显示第一张图片
+    function backNextImg(actionType){//点击 上/下 一张 按钮
+    	var imgTag=document.getElementById("img");
+    	if(actionType>0&&nowImg==5){
+    		nowImg=0;
+    	}else if(actionType<0&&nowImg==1){
+    		nowImg=6;
+    	}
+    	
+    	if(actionType>0){//下一张
+    		nowImg++;
+    	}else{//上一张
+    		nowImg--;
+    	}
+    	imgTag.src="images/"+nowImg+".jpg";
+    	//同步 更改圆圈颜色
+    	circleBtColor(nowImg);
+    }
+    //更改圆圈按钮 样式 与 图片同步
+    function circleBtColor(c_id){
+    	for(var i=1;i<=5;i++){
+    		if(i==c_id){//选中的图片/按钮
+    			document.getElementById("a"+i).className="selTab";//更改当前圆圈按钮的类为 选中类
+    		}else{
+    			document.getElementById("a"+i).className="blurTab";
+    		}
+    	}
+    }
+    function clickCircleBt(imgId){
+    	document.getElementById("img").src="images/"+imgId+".jpg";
+    	//同步 更改圆圈颜色
+    	circleBtColor(imgId);
+    }
+    //定时切换
+    window.onload=function(){
+    	window.setInterval("backNextImg(1)",5000);
+    }
+    </script>
+
+
+
+
+
+
+<style type="text/css">
+    *{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    }
+    #all{
+    margin: 50px;
+    position: relative;
+    }
+    /*---------------------显示图片开始--------------------*/
+    #showImg img{
+    width: 520px;
+    height: 280px;
+    }
+    /*---------------------显示图片结束--------------------*/
+    
+    /*---------------------按钮开始--------------------*/
+    #clickPlay{ /* 按钮div控制 */
+    width: 520px;
+    height: 280px;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    }
+    #back,#next{ /* 上/下 一张 图片 按钮 */
+    display: inline-block;
+    background-color: rgba(119,114,106,0.5);
+    color:#fff;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 8px;
+    position: absolute;
+    top:130px;
+    }
+    #back{
+    left:0px;
+    }
+    #next{
+    right: 0px;
+    }
+    
+    #div_CircleBt{/* 存放圆圈按钮的div */
+    background-color: rgba(128,123,120,0.7);
+    width: 85px;
+    position: absolute;
+    top: 230px;
+    left:210px;
+    padding: 3px 2px;
+    border-radius: 11px; 
+    }
+    #div_CircleBt a{
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    float: left;
+    margin-left: 5px;
+    border-radius: 11px; 
+    }
+    .blurTab{
+    background-color: #B7B7B7;
+    }
+    .selTab{
+    background-color: #FF4400;
+    }
+    /*---------------------按钮结束--------------------*/
+    </style>
+
+
+
+
+
+ <div id="all"><!-- 控制整体的位置 -->
+    	<div id="showImg"><!-- 显示图片 -->
+    		<img src="images/1.jpg" id="img"/>
+    	</div>
+    	<div id="clickPlay"><!-- 按钮点击  -->
+    	<a href="javascript:void(0)" id="back" onclick="backNextImg(-1)">&lt;</a><!-- 上一张 -->
+    	<a href="javascript:void(0)" id="next" onclick="backNextImg(1)">&gt;</a><!-- 下一张 -->
+    	<div id="div_CircleBt" ><!-- 存放圆圈 按钮 -->
+    	<a href="javascript:void(0)" class="selTab" id="a1" onclick="clickCircleBt(1)"></a>
+    	<a href="javascript:void(0)" class="blurTab" id="a2" onclick="clickCircleBt(2)"></a>
+    	<a href="javascript:void(0)" class="blurTab" id="a3" onclick="clickCircleBt(3)"></a>
+    	<a href="javascript:void(0)" class="blurTab" id="a4" onclick="clickCircleBt(4)"></a>
+    	<a href="javascript:void(0)" class="blurTab" id="a5" onclick="clickCircleBt(5)"></a>
+    	</div>
+    	</div>
+    	
+    </div>

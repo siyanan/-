@@ -1,0 +1,76 @@
+<script type="text/javascript">
+    function scaleTest(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	
+    	var img=document.getElementById("shan");
+    	ctx.drawImage(img,0,0,1000,500);
+    	//缩放操作
+    	ctx.font="10px 宋体";
+    	ctx.fillStyle="#FF00FF";
+    	for (var i = 0; i <20; i++) {
+    		ctx.fillText("~啊",395,170);
+        	ctx.scale(1.07,1.07);
+		}
+
+    	/*
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	ctx.strokeRect(20,20,100,60);
+    	for (var i = 0; i < 10; i++) {
+    		ctx.scale(1.2,1.2);
+        	ctx.strokeRect(20,20,100,60);
+		} */
+		/* for (var i = 0; i < 10; i++) {
+			ctx.beginPath();
+			ctx.arc(100,100,50,0,2*Math.PI);
+			ctx.stroke();
+			ctx.scale(1.2,1.2);
+		} */
+    }
+    function rotateTest(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	
+    	ctx.fillStyle="#ccc";
+    	ctx.strokeStyle="red";
+    	for (var i = 0; i < 5; i++) {
+    		ctx.beginPath();
+    		ctx.rect(200,50,200,100);
+        	ctx.stroke();
+        	ctx.fill();
+    		ctx.rotate(10*Math.PI/180);
+		}
+    }
+    function translateTest(){
+    	var c=document.getElementById("myCanvas");
+    	var ctx=c.getContext("2d");
+    	
+    	//绘制手镯的线
+    	ctx.beginPath();
+    	ctx.strokeStyle="black";
+    	ctx.lineWidth="5";
+    	ctx.arc(500,250,200,0,2*Math.PI);
+    	ctx.stroke();
+    	
+    	//绘制珠子
+    	ctx.fillStyle="#6495ED";
+    	ctx.translate(500,250);
+    	for (var i = 0; i <15; i++) {
+    		ctx.beginPath();
+        	ctx.arc(200,0,30,0,2*Math.PI);
+        	ctx.fill();
+        	ctx.rotate(20*Math.PI/180);
+		}
+    }
+    </script>
+
+
+<div style="width: 300px;margin: 10px auto;">
+ 	<h1>绘制其他操作测试</h1>
+  	<input type="button" value="绘制" onclick="translateTest()"><br>
+  </div>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px #ccc solid;margin:0 auto;display:block;">
+    对不起,您的浏览器不支持canvas标签
+    </canvas>
+    <img id="shan" src="imgs/shan.png" style="display: none;">

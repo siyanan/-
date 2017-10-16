@@ -1,0 +1,65 @@
+一,基本的拖拽
+$(function(){
+    	/*
+    	on(): 1.6.4 .1.3.1都不支持,3.2.1支持.
+    	
+    	on(): 用于绑定事件和自定义事件.
+    	绑定事件: on("事件名",回调函数)  on({事件名:函数1,事件名:函数2,..})
+    	自定义事件: on("happy",回调函数); trigger("happy");
+    	*/
+    	$("#myimg").on({
+    		dragstart:function(e){//JS的事件对象在jQuery中是一个成员变量--event. jQuery在事件发生后,将事件对象回调函数的参数中.
+    			console.log("拖动开始...");
+    			event.dataTransfer.setData("imgID",e.target.id);//控制 本次拖动过程中 要传递的数据
+    		},
+    		drag:function(){
+    			console.log("正在拖动...");
+    		},
+    		dragend:function(e){
+    			e.preventDefault();//阻止浏览器默认行为
+    			console.log("拖动结束...");
+    		}
+    	});
+    	$("#divContent").on({
+    		dragenter:function(e){
+    			e.preventDefault();//阻止浏览器默认行为
+    			console.log("拖入容器...");
+    		},
+    		dragover:function(e){
+    			e.preventDefault();//阻止浏览器默认行为
+    			console.log("在容器上...");
+    			
+    		},
+			dragleave:function(e){
+				e.preventDefault();//阻止浏览器默认行为
+				console.log("离开容器...");
+    		},
+			drop:function(e){
+				e.preventDefault();//阻止浏览器默认行为
+				console.log("释放标签...");
+				var imgID=event.dataTransfer.getData("imgID");
+				$("#divContent").append($("#"+imgID));
+    		}
+    	})
+    })
+
+
+
+ 拖放流程测试. <br>
+    <!-- 
+    拖放操作是比较常见的动作,在一些JS或JS库中提供了拖放插件.HTML5也提供了标签的拖放支持.
+    HTML5拖放:
+    1.被拖动的标签必须支持拖动: draggable="true".
+    2.拖放过程如下: 
+    dragstart--drag--dragenter--dragover--dragleave--drop--dragend
+           事件绑定位置:
+    dragstart,drag,dragend属于被拖动标签的事件.
+    dragenter,dragover,dragleave,drop属于目标标签的事件.
+    3.在dragstart事件中,通过"e.dataTransfer.setData()"控制拖动中携带的数据,在dragenter,dragover,dragleave,drop中能够获得.[drag和dragend事件中无法获得]
+    
+    注意: 
+    1.必须绑定 dragover事件,解除浏览器默认行为,否则无法放入目标标签中.
+    2.注意事件绑定位置,防止事件无效
+     -->
+     <div id="divContent"></div>
+     <img src="images/sleep.gif" id="myimg" draggable="true" >

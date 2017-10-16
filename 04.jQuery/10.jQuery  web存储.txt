@@ -1,0 +1,68 @@
+<script type="text/javascript">
+    $(function(){
+    	/*
+    	if(window.localStorage!=undefined){}
+    	if(window.localStorage){}
+    	if(typeof(window.localStorage)!="undefined"){}
+    	*/
+    	if(!window.localStorage){
+    		alert("对比起,您的浏览器不支持Web存储");
+    		return;
+    	}
+    	
+    	$("input[value='存储']").click(function(){
+    		var key_v=$("#key").val();
+    		var val_v=$("#val").val();
+    		localStorage.setItem(key_v, val_v);//item中文意思: 条目   条目含有两部分: 键和值
+    		//localStorage.key_v=val_v;
+    		//localStorage[key_v]=val_v;
+    	});
+    	$("input[value='查询']").click(function(){
+    		$("#selResult").html("");
+    		$("#selResult");
+    		var lg=localStorage.length;
+    		for(var i=0;i<lg;i++){
+    			var key_v=localStorage.key(i);
+    			var val_v=localStorage.getItem(key_v);
+    			$("#selResult").append("信息数:"+lg+"<br>").append(key_v+" ---> "+val_v+"<br>");
+    		}
+    	});
+    	$("input[value='修改']").click(function(){
+    		var key_v=$("#upkey").val();
+    		var val_v=$("#upval").val();
+    		localStorage.setItem(key_v, val_v);
+    	});
+    	$("input[value='删除']").click(function(){
+    		var key_v=$("#delkey").val();
+    		localStorage.removeItem(key_v);
+    	});
+    	$("input[value='清空']").click(function(){
+    		localStorage.clear();
+    	});
+    })
+    
+    </script>
+
+
+ WEB存储测试. <br>
+    <!-- 测试存储 -->
+    key:<input type="text" id="key">
+    value:<input type="text" id="val">
+    <input type="button" value="存储">
+    <br><br><br><br>
+    
+    <!-- 测试查询 -->
+    <input type="button" value="查询"><br>
+    <div id="selResult" style="width: 400px;min-height: 80px;border: 2px #FF6B34 solid;">查询结果:<br></div>
+    <br><br><br><br>
+    
+    <!-- 修改存储 -->
+    key:<input type="text" id="upkey">
+    value:<input type="text" id="upval">
+    <input type="button" value="修改">
+    <br><br><br><br>
+    
+    <!-- 删除存储 -->
+    key:<input type="text" id="delkey">
+    <input type="button" value="删除"><input type="button" value="清空"><br><br>
+    
